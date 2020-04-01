@@ -22,7 +22,7 @@ In order to use other types of video streams (e.g. security camera), you can ext
 ## Example of running the code using mobile's camera
 1. On your phone, download `IP Webcam` app.
 2. Run `IP Webcam` server. Let's name its IP `ip_webcam`.
-3. Let `ip` be equal to:
+3. Let `cameraUrl` be equal to:
     - `ip_webcam:port/shot.jpg` if it is on the same local network.
     - A public IP that is a proxy to get to `ip_webcam`.  
       For example, you can use `ngrok.com` to do this:  
@@ -30,7 +30,7 @@ In order to use other types of video streams (e.g. security camera), you can ext
         `url='ip_webcam:port/shot.jpg' runipy main.ipynb`
       - Make this API accessible online by running:  
         `winpty ngrok http 8080`  
-        And let `ip` equals the resulting public url (e.g. `http://eeba6d36.ngrok.io`).
+        And let `cameraUrl` equals the resulting public url (e.g. `http://eeba6d36.ngrok.io`).
 5. Run the corresponding code in the notebook `AIR0_project.ipynb` using jupyter or colab.
 
 
