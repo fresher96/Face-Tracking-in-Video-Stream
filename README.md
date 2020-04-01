@@ -15,8 +15,12 @@ We implemented this functionality for the following video streams:
 
 In order to use other types of video streams (e.g. security camera), you can extend `VideoStreamBase` or `LocalVideoStream` and override `getImage() -> numpy.ndarray` method to define the procedure of getting a new frame.
 
-## Example of running the code in Online Setting
-1. On your android phone, download `IP Webcam` app.
+
+
+
+
+## Example of running the code using mobile's camera
+1. On your phone, download `IP Webcam` app.
 2. Run `IP Webcam` server. Let's name its IP `ip_webcam`.
 3. Let `ip` be equal to:
     - `ip_webcam:port/shot.jpg` if it is on the same local network.
@@ -29,3 +33,7 @@ In order to use other types of video streams (e.g. security camera), you can ext
         And let `ip` equals the resulting public url (e.g. `http://eeba6d36.ngrok.io`).
 5. Run the corresponding code in the notebook `AIR0_project.ipynb` using jupyter or colab.
 
+
+
+## demo
+![image alt](https://i.imgur.com/PIfeTZO.gif)
