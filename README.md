@@ -35,5 +35,6 @@ In order to use other types of video streams (e.g. security camera), you can ext
 
 
 
-## demo
-![image alt](https://i.imgur.com/PIfeTZO.gif)
+## Demo
+![[Follow link if the file doesn't load](https://i.imgur.com/PIfeTZO.gif)](https://i.imgur.com/PIfeTZO.gif)
+
