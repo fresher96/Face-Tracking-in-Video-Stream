@@ -5,7 +5,8 @@
     "db_person": "./database/Person.json",
     "db_presence": "./database/Presence.csv",
 	
-    "camera_url": "192.168.0.103:8080/shot.jpg",
+    "camera_url": "http://79bc91e8.ngrok.io",
+	"camera_url2": "192.168.0.103:8080/shot.jpg",
     "drive": "drive/My Drive/colab/",
 
 	"face_locations_model": "hog",
@@ -17,6 +18,6 @@
 	"frames_to_enter": 1,
 	"frames_to_exit": 3,
 	
-	
-	"mode": "file"
+	"colab": "False",
+	"mode": "online"
 }

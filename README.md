@@ -1,41 +1,104 @@
 
+
 # Face Tracking and Recognition in Video Streams
-Python code for face tracking and recognition in video streams using [face_recognition](https://github.com/ageitgey/face_recognition) and open-cv.  
-[Google Colab Link](https://colab.research.google.com/drive/1BR4EzaLE-qEzzRp05VvMxiBj5gDd84-n)
-
-The directory `FaceDir` should contain, for each person that you want to recognize, an image of his/her face.
-
-You can use this code to track and recognize these people (unrecognized people's faces will be tracked too) in any video stream.
-
-We implemented this functionality for the following video streams:
-- Offline Setting: uses a video file.
-- Laptop Webcam Setting: uses laptop embedded webcam.
-- Online Setting: uses `cameraUrl` to get frames from the video stream when `cameraUrl` is accessible online. E.g. `cameraUrl = http://my-stream.com`).
-- Local Setting: uses `cameraUrl` to get frames from the video stream when `cameraUrl` is on the same local network. E.g. connected webcam, connected mobile phone through hotspot, `cameraUrl = 192.168.0.103:8080/shot.jpg`).
-
-In order to use other types of video streams (e.g. security camera), you can extend `VideoStreamBase` or `LocalVideoStream` and override `getImage() -> numpy.ndarray` method to define the procedure of getting a new frame.
+Python code for face tracking and recognition in video streams
+using [face_recognition](https://github.com/ageitgey/face_recognition)
+and open-cv.
 
 
+## Run Instructions
+1. Specify your configurations in `configs.json`.
+2. If you are using `mode = online`, run `runipy lunch_service.ipynb`.
+3. Run `runipy main.ipynb`
+
+
+## Database schema
+- Image  
+A directory that contains one photo of each person you want to recognize.
+Accepted extensions: `.jpg`, `.jpeg`, `.png`.
+Image name will be considered as the person's name.
+
+- Face(id, embedding)
+JSON file that stores faces' embeddings.
+If this file is empty, run `runipy images2embeddings.ipynb`.
+
+- Person(id, face_id, name)
+JSON file that people's information with their corresponding faces.
+If this file is empty, run `runipy images2embeddings.ipynb`.
+
+- Presence(id, face_id, person_id, name, timestamp_first, timestamp_last)
+CSV file that stores presence information in the input video stream.
+
+- Demo
+A directory that contains `presence.csv` output for some demo samples.
+
+
+## Configurations
+Specify your configurations in `configs.json`.
+- `database`: Database directory path.
+- `db_image`: Database/Image directory path.
+- `db_face`: Database/Face faces json file path.
+- `db_person`: Database/Person people json file path.
+- `db_presence`: Database/Presence presence csv file path.
+- `camera_url`: The url to fetch frames from the video stream if `mode` is `online` or `local`.
+- `drive`: The url of your google drive in case you want to use google colab.
+- `face_locations_model`: `hog` (simple model) or `cnn` (complex model).
+- `face_encodings_model`: `small` or `large`.
+- `video_file`: Video file path if `mode` is `file`.
+- `output_file`: Output file path to store the resulting video stream.
+- `frames_to_enter`: Minimum number of consecutive frames in order to log a person in.
+- `frames_to_exit`: Maximum number of consecutive frames after which the absence of a person will log him out.
+- `mode`: One value from `online`, `local`, `file`, `webcam`.
+
+
+## Extending
+In order to use other types of video streams (e.g. security camera),
+you can extend `VideoStreamBase` or `LocalVideoStream`
+and override `getImage() -> numpy.ndarray` method
+to define the procedure of getting a new frame.
+Let's name the new class `SecurityCamera()`,
+the simple do:  
+```python
+video = FaceDetector(SecurityCamera()); # if you override `VideoStreamBase` (best to run in notebook or colab)
+video = LocalFaceDetector(SecurityCamera()); # if you override `LocalVideoStream` (runs cv2.imshow in new window)
+video.download(display=True, limit=1000);
+# display=True to display the video while downloading it
+# limit=1000 to record 1000 frames
+```
+
+
+## Demos
+[Online demo](https://i.imgur.com/2K3IZtj.mp4):
+`mode=online`, using android camera, executed on colab.
+
+[File demo](https://i.imgur.com/2K3IZtj.mp4):
+`mode=file`, output file `zuhair-demo.csv`.
+
+[Webcam demo](https://i.imgur.com/2K3IZtj.mp4):
+`mode=webcam`, output file `simple-demo.csv`.
+
+[Real video demo](https://i.imgur.com/2K3IZtj.mp4):
+`mode=file`, `contest-demo.csv`, executed on colab.
+
+
+## Some Tips & Tricks
+To run `mode=local`, download `IP Webcam` app on your phone.
+Lunch the service in the app, let's refer to it by `ip_webcam:port`.
+Set `camera_url` in `ip_webcam:port/shot.jpg`.
+Run the code.
+
+To run `mode=online`, download `IP Webcam` app on your phone.
+Lunch the service in the app, let's refer to it by `ip_webcam:port`.
+Expose this service on a public url
+(using `ngrock` for example, by running
+`winpty ngrok http port` or `ngrok http port`).  
+In `configs.json` set `camera_url2 = ip_webcam:port/shot.jpg`,
+`camera_url = ` the public url (e.g. `http://6e3a33e5.ngrok.io`).  
+Lunch RESTful API service to expose mobile's camera to the public url by running
+`runipy lunch_service.ipynb`.
+Run the code.
 
 
 
-## Example of running the code using mobile's camera
-1. On your phone, download `IP Webcam` app.
-2. Run `IP Webcam` server. Let's name its IP `ip_webcam`.
-3. Let `cameraUrl` be equal to:
-    - `ip_webcam:port/shot.jpg` if it is on the same local network.
-    - A public IP that is a proxy to get to `ip_webcam`.  
-      For example, you can use `ngrok.com` to do this:  
-      - Launch RESTful API by running:  
-        `url='ip_webcam:port/shot.jpg' runipy main.ipynb`
-      - Make this API accessible online by running:  
-        `winpty ngrok http 8080`  
-        And let `cameraUrl` equals the resulting public url (e.g. `http://eeba6d36.ngrok.io`).
-5. Run the corresponding code in the notebook `AIR0_project.ipynb` using jupyter or colab.
 
-
-
-## Demo
-![Follow below link if the file didn't load](https://i.imgur.com/PIfeTZO.gif)  
-[demo](https://i.imgur.com/PIfeTZO.gif)
 
