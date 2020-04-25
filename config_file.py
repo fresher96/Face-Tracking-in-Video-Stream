@@ -5,8 +5,8 @@
 
 
 database 	= './database/';
-db_images 	= database + 'Images/';
-db_faces 	= database + 'Face.json';
+db_image 	= database + 'Image/';
+db_face 	= database + 'Face.json';
 db_person 	= database + 'Person.json';
 db_presence = database + 'Presence.json';
 
@@ -36,8 +36,8 @@ def get_configs():
 	ret = {};
 
 	ret['database'] 	= database;
-	ret['db_images'] 	= db_images;
-	ret['db_faces'] 	= db_faces;
+	ret['db_image'] 	= db_image;
+	ret['db_face'] 		= db_face;
 	ret['db_person'] 	= db_person;
 	ret['db_presence'] 	= db_presence;
 
