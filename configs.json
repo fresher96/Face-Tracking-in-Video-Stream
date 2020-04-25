@@ -1,0 +1,17 @@
+{
+    "database": "./database/",
+    "db_image": "./database/Image/",
+    "db_face": "./database/Face.json",
+    "db_person": "./database/Person.json",
+    "db_presence": "./database/Presence.json",
+	
+    "cameraUrl": "http://192.168.0.103:8080/shot.jpg",
+    "drive": "E:/CLCs/drive/",
+	"face_locations_model": "hog",
+	"face_encodings_model": "small",
+	
+    "videoFile": "E:/CLCs/drive/colab/videos/sample4.mp4",
+    "facesDir": "E:/CLCs/drive/colab/faces/",
+    "videosDir": "E:/CLCs/drive/colab/videos/",
+    "outputFile": "E:/CLCs/drive/colab/output.mp4"
+}
