@@ -18,19 +18,19 @@ A directory that contains one photo of each person you want to recognize.
 Accepted extensions: `.jpg`, `.jpeg`, `.png`.
 Image name will be considered as the person's name.
 
-- Face(id, embedding)
+- Face(id, embedding)  
 JSON file that stores faces' embeddings.
 If this file is empty, run `runipy images2embeddings.ipynb`.
 
-- Person(id, face_id, name)
-JSON file that people's information with their corresponding faces.
+- Person(id, face_id, name)  
+JSON file of people's information with their corresponding faces.
 If this file is empty, run `runipy images2embeddings.ipynb`.
 
-- Presence(id, face_id, person_id, name, timestamp_first, timestamp_last)
+- Presence(id, face_id, person_id, name, timestamp_first, timestamp_last)  
 CSV file that stores presence information in the input video stream.
 
-- Demo
-A directory that contains `presence.csv` output for some demo samples.
+- Demo  
+A directory that contains `Presence.csv` output for some demo samples.
 
 
 ## Configurations
@@ -41,14 +41,18 @@ Specify your configurations in `configs.json`.
 - `db_person`: Database/Person people json file path.
 - `db_presence`: Database/Presence presence csv file path.
 - `camera_url`: The url to fetch frames from the video stream if `mode` is `online` or `local`.
+- `camera_url2`: The local url to fetch frames from the video stream if `mode` is `online`.
+Later, we expose this url to a the public url `camera_url`.
 - `drive`: The url of your google drive in case you want to use google colab.
 - `face_locations_model`: `hog` (simple model) or `cnn` (complex model).
-- `face_encodings_model`: `small` or `large`.
+- `face_encodings_model`: `small` (simple model) or `large` (complex model).
 - `video_file`: Video file path if `mode` is `file`.
 - `output_file`: Output file path to store the resulting video stream.
 - `frames_to_enter`: Minimum number of consecutive frames in order to log a person in.
 - `frames_to_exit`: Maximum number of consecutive frames after which the absence of a person will log him out.
+- `colab`: `True` or `False` whether running on google colab or not, if so, loads the configurations from `configs_colab.json`.
 - `mode`: One value from `online`, `local`, `file`, `webcam`.
+Otherwise, it's equivalent to using `mode=file`.
 
 
 ## Extending
@@ -57,10 +61,10 @@ you can extend `VideoStreamBase` or `LocalVideoStream`
 and override `getImage() -> numpy.ndarray` method
 to define the procedure of getting a new frame.
 Let's name the new class `SecurityCamera()`,
-the simple do:  
+then simple do:  
 ```python
-video = FaceDetector(SecurityCamera()); # if you override `VideoStreamBase` (best to run in notebook or colab)
-video = LocalFaceDetector(SecurityCamera()); # if you override `LocalVideoStream` (runs cv2.imshow in new window)
+video = FaceDetector(SecurityCamera()); # if you override `VideoStreamBase` (works best in notebook or colab)
+video = LocalFaceDetector(SecurityCamera()); # if you override `LocalVideoStream` (works best locally as it uses cv2.imshow)
 video.download(display=True, limit=1000);
 # display=True to display the video while downloading it
 # limit=1000 to record 1000 frames
@@ -71,20 +75,20 @@ video.download(display=True, limit=1000);
 [Online demo](https://i.imgur.com/2K3IZtj.mp4):
 `mode=online`, using android camera, executed on colab.
 
-[File demo](https://i.imgur.com/2K3IZtj.mp4):
-`mode=file`, output file `zuhair-demo.csv`.
+[File demo](https://imgur.com/ur1eyb5.mp4):
+`mode=file`, output presence file `zuhair-demo.csv`.
 
-[Webcam demo](https://i.imgur.com/2K3IZtj.mp4):
-`mode=webcam`, output file `simple-demo.csv`.
+[Webcam demo](https://imgur.com/DaWxRIM.mp4):
+`mode=webcam`, output presence file `simple-demo.csv`.
 
-[Real video demo](https://i.imgur.com/2K3IZtj.mp4):
-`mode=file`, `contest-demo.csv`, executed on colab.
+[Real-life video demo](https://youtu.be/sNtJhgIojtU):
+`mode=file`, output presence file `contest-demo.csv`, executed on colab.
 
 
 ## Some Tips & Tricks
 To run `mode=local`, download `IP Webcam` app on your phone.
 Lunch the service in the app, let's refer to it by `ip_webcam:port`.
-Set `camera_url` in `ip_webcam:port/shot.jpg`.
+Set `camera_url` to `ip_webcam:port/shot.jpg`.
 Run the code.
 
 To run `mode=online`, download `IP Webcam` app on your phone.
@@ -94,8 +98,10 @@ Expose this service on a public url
 `winpty ngrok http port` or `ngrok http port`).  
 In `configs.json` set `camera_url2 = ip_webcam:port/shot.jpg`,
 `camera_url = ` the public url (e.g. `http://6e3a33e5.ngrok.io`).  
-Lunch RESTful API service to expose mobile's camera to the public url by running
-`runipy lunch_service.ipynb`.
+Lunch RESTful API service to expose mobile's camera
+to the public url by running
+`runipy lunch_service.ipynb`,
+i.e. to forward `camera_url -> camera_url2`.
 Run the code.
 
 
