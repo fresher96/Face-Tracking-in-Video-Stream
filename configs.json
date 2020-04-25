@@ -11,6 +11,6 @@
 	"face_locations_model": "hog",
 	"face_encodings_model": "small",
 	
-    "video_file": "./sample.mp4",
-    "outputFile": "./output.mp4"
+    "video_file": "sample_inputs/sample4.mp4",
+    "output_file": "sample_outputs/sample4.mp4"
 }
