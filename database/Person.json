@@ -1,0 +1,52 @@
+[
+    {
+        "id": 0,
+        "face": 0,
+        "name": "andrey"
+    },
+    {
+        "id": 1,
+        "face": 1,
+        "name": "artem"
+    },
+    {
+        "id": 2,
+        "face": 2,
+        "name": "elenora"
+    },
+    {
+        "id": 3,
+        "face": 3,
+        "name": "farouk"
+    },
+    {
+        "id": 4,
+        "face": 4,
+        "name": "jafar"
+    },
+    {
+        "id": 5,
+        "face": 5,
+        "name": "maxim"
+    },
+    {
+        "id": 6,
+        "face": 6,
+        "name": "sergey"
+    },
+    {
+        "id": 7,
+        "face": 7,
+        "name": "vinera"
+    },
+    {
+        "id": 8,
+        "face": 8,
+        "name": "zamira"
+    },
+    {
+        "id": 9,
+        "face": 9,
+        "name": "zuhair"
+    }
+]

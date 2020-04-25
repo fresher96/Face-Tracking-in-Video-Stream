@@ -1,0 +1,16 @@
+{
+    "database": "./database/",
+    "db_image": "./database/Image/",
+    "db_face": "./database/Face.json",
+    "db_person": "./database/Person.json",
+    "db_presence": "./database/Presence.json",
+	
+    "camera_url": "http://192.168.0.103:8080/shot.jpg",
+    "drive": "drive/My Drive/colab/",
+
+	"face_locations_model": "hog",
+	"face_encodings_model": "small",
+	
+    "video_file": "sample_inputs/sample4.mp4",
+    "output_file": "sample_outputs/sample4.mp4"
+}
