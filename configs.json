@@ -12,5 +12,7 @@
 	"face_encodings_model": "small",
 	
     "video_file": "sample_inputs/sample4.mp4",
-    "output_file": "sample_outputs/sample4.mp4"
+    "output_file": "sample_outputs/sample4.mp4",
+	
+	"tolerance": 3
 }
