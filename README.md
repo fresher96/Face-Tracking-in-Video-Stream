@@ -12,7 +12,7 @@ and open-cv.
 3. Run `runipy main.ipynb`
 
 
-## Database schema
+## Database Schema
 - Image  
 A directory that contains one photo of each person you want to recognize.
 Accepted extensions: `.jpg`, `.jpeg`, `.png`.
