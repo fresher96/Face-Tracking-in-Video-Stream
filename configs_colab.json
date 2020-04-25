@@ -1,0 +1,22 @@
+{
+    "database": "drive/My Drive/colab/AIR_project/database/",
+    "db_image": "drive/My Drive/colab/AIR_project/database/Image/",
+    "db_face": "drive/My Drive/colab/AIR_project/database/Face.json",
+    "db_person": "drive/My Drive/colab/AIR_project/database/Person.json",
+    "db_presence": "drive/My Drive/colab/AIR_project/database/Presence.csv",
+	
+    "camera_url": "192.168.0.103:8080/shot.jpg",
+    "drive": "drive/My Drive/colab/",
+
+	"face_locations_model": "cnn",
+	"face_encodings_model": "large",
+	
+    "video_file": "drive/My Drive/colab/AIR_project/sample_inputs/sample4.mp4",
+    "output_file": "drive/My Drive/colab/AIR_project/sample_outputs/output.mp4",
+	
+	"frames_to_enter": 1,
+	"frames_to_exit": 3,
+	
+	
+	"mode": "file"
+}
