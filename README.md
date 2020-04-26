@@ -1,6 +1,6 @@
 
 
-# Face Tracking and Recognition in Video Streams
+# Face Tracking and Recognition in Video Stream
 Python code for face tracking and recognition in video streams
 using [face_recognition](https://github.com/ageitgey/face_recognition)
 and open-cv.
@@ -55,7 +55,7 @@ Later, we expose this url to a the public url `camera_url`.
 Otherwise, it's equivalent to using `mode=file`.
 
 
-## Extending
+## Extending the Code
 In order to use other types of video streams (e.g. security camera),
 you can extend `VideoStreamBase` or `LocalVideoStream`
 and override `getImage() -> numpy.ndarray` method
