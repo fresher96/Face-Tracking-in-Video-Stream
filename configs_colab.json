@@ -17,7 +17,7 @@
 	
 	"frames_to_enter": 2,
 	"frames_to_exit": 3,
-	"tolerance": 0.4,
+	"tolerance": 0.6,
     
 	"colab": "True",
 	"mode": "file"
