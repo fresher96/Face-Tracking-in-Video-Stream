@@ -17,7 +17,8 @@
 	
 	"frames_to_enter": 1,
 	"frames_to_exit": 3,
-	
-	"colab": "False",
+	"tolerance": 0.6,
+    
+	"colab": "True",
 	"mode": "online"
 }

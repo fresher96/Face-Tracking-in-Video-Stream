@@ -15,9 +15,10 @@
     "video_file": "drive/My Drive/colab/AIR_project/sample_inputs/sample4.mp4",
     "output_file": "drive/My Drive/colab/AIR_project/sample_outputs/output.mp4",
 	
-	"frames_to_enter": 1,
+	"frames_to_enter": 2,
 	"frames_to_exit": 3,
-	
+	"tolerance": 0.4,
+    
 	"colab": "True",
 	"mode": "file"
 }
