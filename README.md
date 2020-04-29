@@ -50,6 +50,8 @@ Later, we expose this url to a the public url `camera_url`.
 - `output_file`: Output file path to store the resulting video stream.
 - `frames_to_enter`: Minimum number of consecutive frames in order to log a person in.
 - `frames_to_exit`: Maximum number of consecutive frames after which the absence of a person will log him out.
+- `tolerance`: If the distance between the closest face in the database and the face in the video is less that `tolerance`,
+we consider it a match. Otherwise, we say that the face isn't a recognized person.
 - `colab`: `True` or `False` whether running on google colab or not, if so, loads the configurations from `configs_colab.json`.
 - `mode`: One value from `online`, `local`, `file`, `webcam`.
 Otherwise, it's equivalent to using `mode=file`.
