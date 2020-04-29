@@ -3,7 +3,8 @@
 # Face Tracking and Recognition in Video Stream
 Python code for face tracking and recognition in video streams
 using [face_recognition](https://github.com/ageitgey/face_recognition)
-and open-cv.
+and open-cv.  
+You can view the code on google colab [here](https://colab.research.google.com/drive/1OoYeBeFAKrwLUwNizExD37NprGI0acUT).
 
 
 ## Run Instructions
