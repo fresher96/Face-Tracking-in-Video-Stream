@@ -5,7 +5,8 @@ Python code for face tracking and recognition in video streams
 using [face_recognition](https://github.com/ageitgey/face_recognition)
 (which uses [dlib](https://github.com/davisking/dlib))
 and open-cv.  
-You can view the code on google colab [here](https://colab.research.google.com/drive/1OoYeBeFAKrwLUwNizExD37NprGI0acUT).
+To view and run the code on google colab [click here](https://colab.research.google.com/drive/1OoYeBeFAKrwLUwNizExD37NprGI0acUT).  
+A brief presentation of this project is available [here](https://docs.google.com/presentation/d/1_GkjkVSaqIUSYkXnzIrUcRBSsj7aaF3UHWIsrrvIhiA/edit?usp=sharing).
 
 
 ## Run Instructions
