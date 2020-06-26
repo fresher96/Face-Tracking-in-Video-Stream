@@ -109,8 +109,3 @@ to the public url by running
 i.e. to forward `camera_url -> camera_url2`.
 Run the code.
 
-
-This is a test of the rendering of math formulas $x = y$, as an example.
-$$ ax^2 + bx + c = 0 $$
-
-
